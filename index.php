@@ -6,7 +6,7 @@
   print_r($path_name);
   print_r($path_name[3]);
   exit;
-  $inc_adrs_post = ['signup', 'signin']; // post로 전달되는 주고
+  $inc_adrs_post = ['signup', 'signin', 'is_signin']; // post로 전달되는 주고
   $inc_adrs_get = ['signout']; // get으로 전달되는 주소
   for($i = 0; $i <count($inc_adrs_post); $i++){
     // echo $inc_adrs_post[$i];
