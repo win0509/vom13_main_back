@@ -61,41 +61,39 @@
 
     // 로그인 함수
     public function login(){
-    
-      $sql = "SELECT * FROM ".$this->table." WHERE user_id=:id";
+      $sql = "SELECT * FROM ". $this->table ." WHERE user_id=:id";
       $stmt = $this->conn->prepare($sql);
 
-      $this->id     = htmlspecialchars($this->id);
+      // $this->id     = htmlspecialchars($this->id);
       $stmt->bindParam(':id',     $this->id);
-     
 
       $stmt->execute();
       $result = $stmt->rowCount(); // 조회된 결과 숫자로 리턴
-    
-      if(!$result){ //result에 값이 없다면
+
+      if(!$result){ // $result에 값이 없다면
         return 0;
-      }else {
+      } else {
         $row = $stmt->fetch();
         $pwd = $row['user_pwd'];
         $pwd_verify = password_verify($this->pwd, $pwd);
         if(!$pwd_verify){
           return 1;
-        }else{
+        } else {
           return $row;
         }
       }
-    }
-  
+    } 
 
     // 로그아웃 함수
     public function logout(){
       session_start();
-      if(isset($_SESSION['userid'])){ //isset : 값의 존재 여부(boolean)
+      if(isset($_SESSION['userid'])){ // isset : 값의 존재 여부(boolean)
         return true;
-      }else{
+      } else {
         return false;
       }
     }
+
   }
 
 ?>
