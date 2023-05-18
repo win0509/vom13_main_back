@@ -27,8 +27,9 @@
     $_SESSION['useridx'] = $login_ok['user_idx'];
     $_SESSION['userid'] = $login_ok['user_id'];
     $_SESSION['userlvl'] = $login_ok['user_lvl'];
+    $_SESSION['usertoken'] = $login_ok['user_token'];
 
-    $msg = array("useridx" => $_SESSION['useridx'], "userid" => $_SESSION['userid'], "userlvl" => $_SESSION['userlvl']);
+    $msg = array("useridx" => $_SESSION['useridx'], "userid" => $_SESSION['userid'], "userlvl" => $_SESSION['userlvl'], "usertoken" => $_SESSION['usertoken']);
   }
 
   echo json_encode($msg);
