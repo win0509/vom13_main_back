@@ -2,10 +2,10 @@
 header('Access_Control-Allow-Origin: *'); // 크로스 오리진 허용
 header('Content-Type: application/json'); // 데이터 형식 json
 
-$msg = [];
-
 include $_SERVER["DOCUMENT_ROOT"].'/connect/db_conn.php';
 include $_SERVER["DOCUMENT_ROOT"].'/baexang_back/admin/admin.php';
+
+$msg = [];
 
 $get_users = new Admin($db);
 

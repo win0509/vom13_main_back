@@ -8,9 +8,9 @@
   } else {
     $userid = "guest";
     $useridx = -1;
-    $userlvl = -1;
+    $userlvl = null;
   }
 
-  echo json_encode(array("userid" => $userid, "useridx" => $useridx, "userlvl" => $userlvl));
+  echo json_encode(array("userid" => $userid, "useridx" => $useridx, "userlvl" => $userlvl));  
 
 ?>
