@@ -52,8 +52,7 @@
       $stmt->bindParam(":email",  $this->email);
       $stmt->bindParam(":pwd",    $this->pwd);
       $stmt->bindParam(":lvl",    $this->lvl);
-      $stmt->bindParam(":token",    $this->token);
-
+      $stmt->bindParam(":token",  $this->token);
 
       return $stmt->execute() ? true : false;
       // if($stmt->execute()){
@@ -65,29 +64,28 @@
 
     // 로그인 함수
     public function login(){
-      //=========== 로그인 데이터 조회 시작 =============
+      // ======= 로그인 데이터 조회 시작 =========
       $sql = "SELECT * FROM ". $this->table ." WHERE user_id=:id";
       $stmt = $this->conn->prepare($sql);
 
-      // $this->id     = htmlspecialchars($this->id);
       $stmt->bindParam(':id',     $this->id);
 
       $stmt->execute();
       $result = $stmt->rowCount(); // 조회된 결과 숫자로 리턴
-      //============ 로그인 데이터 조회 끝 ===============
+      // ======= 로그인 데이터 조회 끝 ========
 
+      // ======= 토큰 데이터 업데이트 시작 ========
+      $this->token = sha1(time());
 
-      //============ 토큰 데이터 업데이트 시작 ===============
-      $this->token= sha1(time());
       $sql1 = "UPDATE ". $this->table ." SET user_token=:token WHERE user_id=:id";
+
       $stmt1 = $this->conn->prepare($sql1);
 
-      
       $stmt1->bindParam(':id',     $this->id);
-      $stmt1->bindParam(':token',     $this->token);
+      $stmt1->bindParam(':token',  $this->token);
 
       $stmt1->execute();
-      //============ 토큰 데이터 업데이트 끝 ===============
+      // ======= 토큰 데이터 업데이트 끝 ========
 
       if(!$result){ // $result에 값이 없다면
         return 0;
