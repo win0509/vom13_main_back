@@ -33,7 +33,9 @@
         $this->table = 'bx_dp';
       }
 
-      $sql = "INSERT INTO ".$this->table." SET bx_img=:pr_img, bx_ttl=:pr_ttl, bx_wt_en=:pr_wt_en, bx_wt_kr=:pr_wt_kr, bx_pri=:pr_pri, bx_desc=:pr_desc, bx_reg=:pr_reg, bx_ID=:pr_ID,bx_hit=:pr_hit";
+      $sql = "INSERT INTO ".$this->table." SET bx_img=:pr_img, bx_ttl=:pr_ttl, 
+      bx_wt_en=:pr_wt_en, bx_wt_kr=:pr_wt_kr, bx_pri=:pr_pri, bx_desc=:pr_desc, 
+      bx_reg=:pr_reg, bx_ID=:pr_ID,bx_hit=:pr_hit, bx_type=:pr_type";
 
       $stmt = $this->conn->prepare($sql);
 
@@ -57,6 +59,7 @@
       $stmt->bindParam(':pr_reg',   $this->pr_reg);
       $stmt->bindParam(':pr_ID',    $this->pr_ID); 
       $stmt->bindParam(':pr_hit',    $this->pr_hit); 
+      $stmt->bindParam(':pr_type',    $this->table); 
 
 
       $result = $stmt->execute();
