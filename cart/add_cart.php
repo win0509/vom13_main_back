@@ -28,7 +28,10 @@
                         "cart_ttl" => $data->cart_ttl,
                         "cart_wt_kr" => $data->cart_wt_kr,
                         "cart_pri" => $data->cart_pri,
-                        "cart_count" => $data->cart_count
+                        "cart_count" => $data->cart_count,
+                        "cart_type" => $data->cart_type,
+                        "cart_size" => $data->cart_size
+
                   );
 
                   $msg = ['msg' => '카트에 상품이 추가 되었습니다.'];
@@ -42,7 +45,9 @@
                   "cart_ttl" => $data->cart_ttl,
                   "cart_wt_kr" => $data->cart_wt_kr,
                   "cart_pri" => $data->cart_pri,
-                  "cart_count" => $data->cart_count
+                  "cart_count" => $data->cart_count,
+                  "cart_type" => $data->cart_type,
+                  "cart_size" => $data->cart_size
             );
             $msg = ['msg' => '카트에 상품이 추가 되었습니다.'];
 
