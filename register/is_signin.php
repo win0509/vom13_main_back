@@ -13,7 +13,7 @@
 
   if($_SESSION['cart']){
     $cart_count = count($_SESSION['cart']);
-  }else{
+  } else {
     $cart_count = 0;
   }
 
